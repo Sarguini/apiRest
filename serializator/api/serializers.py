@@ -1,14 +1,9 @@
-from django.contrib.auth.models import User, Group
+# from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from serializator.models import Meteor
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class MeteorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups']
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Meteor
+        fields = ['id', 'name', 'weight', 'image', 'price']
