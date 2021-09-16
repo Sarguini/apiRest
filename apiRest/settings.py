@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-xxi*9h^-nk#6y8r=5e((!fk7zk_e(&_zo=-!a%=$xn0ed0tqhr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'apiRest',
     'rest_framework',
     'serializator',
-    
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,7 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': 'root',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
     }
 }
 
