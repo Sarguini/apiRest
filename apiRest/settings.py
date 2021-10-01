@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,12 @@ SECRET_KEY = 'django-insecure-xxi*9h^-nk#6y8r=5e((!fk7zk_e(&_zo=-!a%=$xn0ed0tqhr
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['piece-of-star.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+    'piece-of-star.herokuapp.com',
+    ]
 
 
 # Application definition
@@ -45,8 +51,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Heroku
     'django.middleware.security.SecurityMiddleware',
-
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -91,6 +97,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
